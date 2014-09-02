@@ -44,7 +44,7 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUEDROID_VENDOR_CONF := device/asus/transformer-common/bluetooth/vnd_transformer-common.txt
+BOARD_BLUEDROID_VENDOR_CONF := device/asus/transformer-common/bluetooth/vnd_tf_common.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/asus/transformer-common/bluetooth
 
 # Support for dock battery
