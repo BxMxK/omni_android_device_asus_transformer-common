@@ -110,6 +110,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_INITRC := device/asus/transformer-common/recovery/init.rc
 BOARD_HAS_SDCARD_INTERNAL := true
 TARGET_RECOVERY_FSTAB := device/asus/transformer-common/ramdisk/fstab.cardhu
+TARGET_USERIMAGES_USE_F2FS := true
 
 #twrp
 RECOVERY_SDCARD_ON_DATA := true
