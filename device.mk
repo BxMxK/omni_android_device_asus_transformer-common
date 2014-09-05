@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product-if-exists, vendor/asus/tf700t/tf700t-vendor.mk)
-
 DEVICE_PACKAGE_OVERLAYS += device/asus/transformer-common/overlay
 
 # Files needed for boot image
