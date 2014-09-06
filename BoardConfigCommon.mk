@@ -85,21 +85,21 @@ TARGET_KERNEL_CONFIG := grimlock_tegra3_defconfig
 BOARD_SEPOLICY_DIRS := \
     device/asus/transformer-common/sepolicy
 
-#BOARD_SEPOLICY_UNION := \
-#    file_contexts \
-#    genfs_contexts \
-#    app.te \
-#    btmacreader.te \
-#    device.te \
-#    drmserver.te \
-#    init_shell.te \
-#    file.te \
-#    rild.te \
-#    sensors_config.te \
-#    shell.te \
-#    surfaceflinger.te \
-#    system.te \
-#    zygote.te
+BOARD_SEPOLICY_UNION := \
+    file_contexts \
+    genfs_contexts \
+    app.te \
+    btmacreader.te \
+    device.te \
+    drmserver.te \
+    init_shell.te \
+    file.te \
+    rild.te \
+    sensors_config.te \
+    shell.te \
+    surfaceflinger.te \
+    system.te \
+    zygote.te
 
 BOARD_HARDWARE_CLASS := device/asus/transformer-common/cmhw/
 
