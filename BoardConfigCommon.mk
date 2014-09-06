@@ -128,7 +128,7 @@ TW_INCLUDE_JB_CRYPTO := true
 TW_CRYPTO_FS_TYPE := "ext4"
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p8"
 TW_CRYPTO_MNT_POINT := "/data"
-TW_CRYPTO_FS_OPTIONS := "data=ordered,delalloc"
+TW_CRYPTO_FS_OPTIONS := "data=ordered,nodelalloc"
 TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
 TWRP_CUSTOM_KEYBOARD := ../../../device/asus/transformer-common/recovery/hardwarekeyboard.cpp
