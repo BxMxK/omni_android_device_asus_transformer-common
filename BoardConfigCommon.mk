@@ -116,8 +116,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
 TW_NO_USB_STORAGE := true
-TW_INCLUDE_JB_CRYPTO := true
-
 TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sdcard"
@@ -126,12 +124,13 @@ TW_EXTERNAL_STORAGE_PATH := "/external_data"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_data"
 TW_EXTERNAL_STORAGE_PATH := "/external_data"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_system"
-
+TW_INCLUDE_JB_CRYPTO := true
 TW_CRYPTO_FS_TYPE := "ext4"
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p8"
 TW_CRYPTO_MNT_POINT := "/data"
-TW_CRYPTO_FS_OPTIONS := "journal_async_commit,data=writeback,nodelalloc"
 TW_CRYPTO_FS_OPTIONS := "data=ordered,delalloc"
 TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
 TWRP_CUSTOM_KEYBOARD := ../../../device/asus/transformer-common/recovery/hardwarekeyboard.cpp
+TW_BRIGHTNESS_FILE := /sys/devices/platform/pwm-backlight/backlight/pwm-backlight/brightness
+TW_MAX_BRIGHTNESS := 200
