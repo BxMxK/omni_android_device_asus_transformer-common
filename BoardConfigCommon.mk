@@ -85,21 +85,21 @@ TARGET_KERNEL_CONFIG := grimlock_tegra3_defconfig
 BOARD_SEPOLICY_DIRS := \
     device/asus/transformer-common/sepolicy
 
-BOARD_SEPOLICY_UNION := \
-    file_contexts \
-    genfs_contexts \
-    app.te \
-    btmacreader.te \
-    device.te \
-    drmserver.te \
-    init_shell.te \
-    file.te \
-    rild.te \
-    sensors_config.te \
-    shell.te \
-    surfaceflinger.te \
-    system.te \
-    zygote.te
+#BOARD_SEPOLICY_UNION := \
+#    file_contexts \
+#    genfs_contexts \
+#    app.te \
+#    btmacreader.te \
+#    device.te \
+#    drmserver.te \
+#    init_shell.te \
+#    file.te \
+#    rild.te \
+#    sensors_config.te \
+#    shell.te \
+#    surfaceflinger.te \
+#    system.te \
+#    zygote.te
 
 BOARD_HARDWARE_CLASS := device/asus/transformer-common/cmhw/
 
@@ -116,19 +116,21 @@ TARGET_USERIMAGES_USE_F2FS := true
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
 TW_NO_USB_STORAGE := true
-TW_NO_REBOOT_BOOTLOADER := true
-TW_NO_REBOOT_RECOVERY := true
 TW_INCLUDE_JB_CRYPTO := true
 
 TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sdcard"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sdcard"
+TW_EXTERNAL_STORAGE_PATH := "/external_data"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_data"
+TW_EXTERNAL_STORAGE_PATH := "/external_data"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_system"
 
 TW_CRYPTO_FS_TYPE := "ext4"
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p8"
 TW_CRYPTO_MNT_POINT := "/data"
-#TW_CRYPTO_FS_OPTIONS := "journal_async_commit,data=writeback,nodelalloc"
+TW_CRYPTO_FS_OPTIONS := "journal_async_commit,data=writeback,nodelalloc"
 TW_CRYPTO_FS_OPTIONS := "data=ordered,delalloc"
 TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
