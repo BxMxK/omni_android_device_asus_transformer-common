@@ -78,8 +78,8 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 
 # Build kernel from source
-TARGET_KERNEL_SOURCE := kernel/grimlock/asus/tegra3/unified
-TARGET_KERNEL_CONFIG := grimlock_tegra3_defconfig
+TARGET_KERNEL_SOURCE := android/kernel/asus/tf700t
+TARGET_KERNEL_CONFIG := that_tf700t_defconfig
 
 # SELINUX Defines
 BOARD_SEPOLICY_DIRS := \
