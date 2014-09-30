@@ -86,10 +86,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.opengles.version=131072 \
     persist.sys.usb.config=mtp,adb
    
-# Torch
-PRODUCT_PACKAGES += \
-    Torch
-
 # media files
 PRODUCT_COPY_FILES += \
     device/asus/transformer-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
