@@ -61,6 +61,18 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     $(LOCAL_PATH)/asusdec/org.omnirom.asusdec.xml:system/etc/permissions/org.omnirom.asusdec.xml
 
+# media files
+PRODUCT_COPY_FILES += \
+    device/asus/transformer-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/asus/transformer-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/asus/transformer-common/configs/audio_policy.conf:system/etc/audio_policy.conf
+# gps config files
+PRODUCT_COPY_FILES += \
+    device/asus/transformer-common/configs/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
+    device/asus/transformer-common/configs/gps.conf:system/etc/gps.conf \
+    device/asus/transformer-common/configs/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
+    device/asus/transformer-common/configs/get-gps-lto:system/bin/get-gps-lto
+
 # Extra packages to build for this device
 PRODUCT_PACKAGES += \
     librs_jni \
@@ -81,22 +93,83 @@ PRODUCT_PACKAGES += \
 # Propertys spacific for this device
 PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
+    wifi.supplicant_scan_interval=180 \
     tf.enable=y \
     ro.opengles.version=131072 \
     persist.sys.usb.config=mtp,adb
    
-# media files
-PRODUCT_COPY_FILES += \
-    device/asus/transformer-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    device/asus/transformer-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    device/asus/transformer-common/configs/audio_policy.conf:system/etc/audio_policy.conf
-# gps config files
-PRODUCT_COPY_FILES += \
-    device/asus/transformer-common/configs/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
-    device/asus/transformer-common/configs/gps.conf:system/etc/gps.conf \
-    device/asus/transformer-common/configs/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-    device/asus/transformer-common/configs/get-gps-lto:system/bin/get-gps-lto
+# Allow dalvik to use JIT (Just in Time) Compiler
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.execution-mode=init:jit \
+    dalvik.vm.verify-bytecode=false \
+    dalvik.vm.checkjni=false \
+    dalvik.vm.dexopt-data-only=1 \
+    dalvik.vm.check-dex-sum=false 
+    
+# Dalvik flags
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dexopt-flags=m=y
+
+# Improve Touch Pressure
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.performance.tuning=1 \
+    windowsmgr.max_events_per_sec=200 \
+    view.touch_slop=2 \
+    view.scroll_friction=0.001 \
+    view.minimum_fling_velocity=8 \
+    view.maximum_fling_velocity=999 \
+    ro.min_pointer_dur=8 \
+    touch.size.calibration=geometric \
+    touch.size.scale=100 \
+    touch.pressure.calibration=amplitude \
+    touch.pressure.scale=0.001 \
+    ro.min.fling_velocity=12000 \
+    ro.max.fling_velocity=30000
+    
+# Battery savers
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ril.disable.power.collapse=0
+    
+# Increase jpg quality to 100%
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.media.enc.jpeg.quality=100 \
+    ro.media.dec.jpeg.memcap=80000000 \
+    ro.media.enc.hprof.vid.bps=8000000
+    
+# Smoother video streaming
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-meta=true \
+    media.stagefright.enable-scan=false \
+    media.stagefright.enable-http=true
+    
+# Device will boot faster
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.hw_quickpoweron=true
+
+# Extra persist settings
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.adb.notify=0 \
+    persist.service.adb.enable=1 \
+    persist.service.mount.playsnd=0 \
+    persist.service.debuggable=1 \
+    ro.kernel.android.checkjni=0
+    
+# Improve Waking Up from Sleep
+PRODUCT_PROPERTY_OVERRIDES += \
+	pm.sleep_mode=2
+	
+# Better Rendering
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.composition.type=gpu \
+	debug.composition.type=gpu \
+	dev.pm.gpu_samplingrate = 1 \
+	debug.egl.profiler=1 \
+	debug.egl.hw=1 \
+	persist.sys.ui.hw=true \
+	debug.sf.hw=1 \
+	force_hw_ui=true \
+	video.accelerate.hw=1
 
 # Inherit tablet dalvik settings
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
