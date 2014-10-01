@@ -112,19 +112,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Improve Touch Pressure
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.performance.tuning=1 \
-    windowsmgr.max_events_per_sec=200 \
-    view.touch_slop=2 \
-    view.scroll_friction=0.001 \
-    view.minimum_fling_velocity=8 \
-    view.maximum_fling_velocity=999 \
-    ro.min_pointer_dur=8 \
     touch.size.calibration=geometric \
     touch.size.scale=100 \
     touch.pressure.calibration=amplitude \
-    touch.pressure.scale=0.001 \
-    ro.min.fling_velocity=12000 \
-    ro.max.fling_velocity=30000
+    touch.pressure.scale=0.001
     
 # Battery savers
 PRODUCT_PROPERTY_OVERRIDES += \
